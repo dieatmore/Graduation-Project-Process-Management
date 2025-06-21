@@ -1,0 +1,8 @@
+### 添加部门
+POST http://localhost:8080/api/admin/departments
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUWUxcCIsInVpZCI6IjEzODU4MjY3ODk5OTk5MjcyOTYiLCJpYXQiOjE3NTA0ODU3NTksImV4cCI6MTc1MDU3MjE1OX0.95oMw-EGm4HzGwM7gePFwd_PnGbT1ony4sFO1fUqph0
+Content-Type: application/json
+
+{
+  "name": "人工智能"
+}
