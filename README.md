@@ -1,4 +1,4 @@
-## Graduation Project Process Management
+# Graduation Project Process Management
 
 ### 基础功能
 
@@ -18,20 +18,20 @@
 
 ### 角色功能
 
-##### 管理员
+#### 管理员
 
  - 创建专业
  - 获取专业
 
-##### 导师
+#### 导师
 
  - 创建过程
 
-##### 学生
+#### 学生
 
 <hr>
 
-##### update
+### update
 
 2025-6-21
 
