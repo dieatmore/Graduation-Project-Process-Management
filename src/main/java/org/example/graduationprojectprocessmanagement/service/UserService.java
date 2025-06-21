@@ -21,17 +21,6 @@ public class UserService {
         return userRepository.findByNumber(number);
     }
 
-    @Transactional
-    public void updateUserPassword(String number) {
-        User user = userRepository.findByNumber(number);
-        if (user == null) {
-            throw  XException.builder()
-                    .number(Code.ERROR)
-                    .message("用户不存在")
-                    .build();
-        }
-        user.setPassword(passwordEncoder.encode(number));
-    }
 
     @Transactional
     public void updateUserPasswordById(String uid, String password) {

@@ -6,3 +6,12 @@ Content-Type: application/json
   "number": "admin",
   "password": "admin"
 }
+
+### 老师
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "number": "12345",
+  "password": "admin"
+}

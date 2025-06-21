@@ -9,18 +9,27 @@ import org.example.graduationprojectprocessmanagement.repository.DepartmentRepos
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Slf4j
 @RequiredArgsConstructor
 public class AdminService {
     private final DepartmentRepository departmentRepository;
 
+
+    // 创建专业
     @Transactional
     public void addDepartment(Department department) {
-        // 500错误
+//         500错误
 //        if (departmentRepository.existsByName(department.getName())) {
 //            throw XException.builder().number(Code.ERROR).message("专业已存在").build();
 //        }
         departmentRepository.save(department);
+    }
+
+    // 查看所有专业
+    public List<Department> listDepartments() {
+        return departmentRepository.findAll();
     }
 }

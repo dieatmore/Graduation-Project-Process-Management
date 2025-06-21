@@ -1,0 +1,12 @@
+### 创建子项
+POST http://localhost:8080/api/teacher/process
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYlUzZSIsImRlcGFydG1lbnRJZCI6IjEzODU4Njg5MTcxMzIxMjQxNjAiLCJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2IiwiaWF0IjoxNzUwNTAwNTY4LCJleHAiOjE3NTA1ODY5Njh9.fUAhM6Dx_2la6jUHmZMk9gB_ab6_djRBhNv89nd8E1E
+Content-Type: application/json
+
+{
+  "name": "开题答辩",
+  "items":  "[{\"number\":\"1\",\"name\":\"选题依据\",\"point\":50,\"description\":\"毕业设计的选题依据\"},{\"number\":\"2\",\"name\":\"设计方案\",\"point\":25,\"description\":\"毕业设计的设计方案\"},{\"number\":\"3\",\"name\":\"答辩\",\"point\":25,\"description\":\"毕业设计的答辩\"}]",
+  "point": 30,
+  "auth": "TEA01",
+  "student_attach": "[{\"number\":\"1\",\"name\":\"开题答辩报告\",\"ext\":\"pdf\",\"description\":\"需清晰可见有效期\"}]"
+}

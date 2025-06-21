@@ -29,7 +29,7 @@ create table if not exists `user`
 create table if not exists `process`
 (
     id             char(19)         not null primary key,
-    name           varchar(20)      not null,
+    name           varchar(20)      not null unique ,
     items          json             null comment '[{"number", "name", "point", "description"}]',
     point          tinyint unsigned null,
     auth           char(5)          not null,

@@ -31,7 +31,12 @@ public class LoginController {
         if(userR == null || !passwordEncoder.matches(user.getPassword(), userR.getPassword())) {
             return ResultVO.error(Code.LOGIN_ERROR);
         }
-        String token = jwtComponent.encode(Map.of("uid",userR.getId(),"role",userR.getRole()));
+        String token = null;
+        if(userR.getGroupNumber()!=null) {
+            token = jwtComponent.encode(Map.of("uid",userR.getId(),"role",userR.getRole(),"departmentId",userR.getDepartmentId(),"groupNumber",userR.getGroupNumber()));
+        } else {
+            token = jwtComponent.encode(Map.of("uid",userR.getId(),"role",userR.getRole(),"departmentId",userR.getDepartmentId()));
+        }
         response.setHeader("token",token);
         response.setHeader("role", userR.getRole());
         return ResultVO.success(userR);

@@ -6,10 +6,7 @@ import org.example.graduationprojectprocessmanagement.dox.Department;
 import org.example.graduationprojectprocessmanagement.service.AdminService;
 import org.example.graduationprojectprocessmanagement.service.UserService;
 import org.example.graduationprojectprocessmanagement.vo.ResultVO;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -17,6 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AdminController {
     private final AdminService adminService;
+
+    @GetMapping("departments")
+    public ResultVO listDepartments() {
+        return ResultVO.success(adminService.listDepartments());
+    }
 
     @PostMapping("departments")
     public ResultVO addDepartment(@RequestBody Department department) {

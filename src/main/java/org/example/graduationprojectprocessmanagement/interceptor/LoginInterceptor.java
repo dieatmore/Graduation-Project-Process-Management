@@ -24,8 +24,13 @@ public class LoginInterceptor implements HandlerInterceptor {
         DecodedJWT decode = jwtComponent.decode(token);
         String uid = decode.getClaim("uid").asString();
         String role = decode.getClaim("role").asString();
+        String departmentId = decode.getClaim("departmentId").asString();
         request.setAttribute("uid",uid);
         request.setAttribute("role",role);
+        request.setAttribute("departmentId",departmentId);
+        if(decode.getClaim("groupNumber")!=null) {
+            request.setAttribute("groupNumber",decode.getClaim("groupNumber"));
+        }
         return true;
     }
 }
