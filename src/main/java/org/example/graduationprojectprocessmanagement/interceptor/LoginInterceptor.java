@@ -1,5 +1,6 @@
 package org.example.graduationprojectprocessmanagement.interceptor;
 
+import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -28,8 +29,9 @@ public class LoginInterceptor implements HandlerInterceptor {
         request.setAttribute("uid",uid);
         request.setAttribute("role",role);
         request.setAttribute("departmentId",departmentId);
-        if(decode.getClaim("groupNumber")!=null) {
-            request.setAttribute("groupNumber",decode.getClaim("groupNumber"));
+        Claim groupClaim = decode.getClaim("groupNumber");
+        if (groupClaim != null) {
+            request.setAttribute("groupNumber", groupClaim.asString());
         }
         return true;
     }
