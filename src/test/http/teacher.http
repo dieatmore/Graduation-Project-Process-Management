@@ -49,3 +49,13 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2
 ### 获取某组的学生
 GET http://localhost:8080/api/teacher/students/group
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDU3NzcyMCwiZXhwIjoxNzUwNjY0MTIwfQ.aVO-r5NaH84Q067GSLzw_33wS7Q3GRkXtvbNuKEXr00
+
+### 导师评分
+POST http://localhost:8080/api/teacher/processScore/1382826281929927293/1385934577505820672
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDU4Mjc3MSwiZXhwIjoxNzUwNjY5MTcxfQ.EC8JiOx0Z2TuY2tiV3WZpBzBZtn5ZspthDFub8BwEnY
+Content-Type: application/json
+
+{
+  "id": "1386269736033738752",
+  "detail":  "{\"teacherName\":\"bo波老师\",\"score\":91.2,\"detail\":[{\"number\":\"QUIZ001\",\"score\":95},{\"number\":\"ASSIGN002\",\"score\":88},{\"number\":\"FINAL_EXAM\",\"score\":90}]}"
+}

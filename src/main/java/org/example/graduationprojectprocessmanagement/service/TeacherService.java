@@ -4,10 +4,12 @@ package org.example.graduationprojectprocessmanagement.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.graduationprojectprocessmanagement.dox.Process;
+import org.example.graduationprojectprocessmanagement.dox.ProcessScore;
 import org.example.graduationprojectprocessmanagement.dox.User;
 import org.example.graduationprojectprocessmanagement.exception.Code;
 import org.example.graduationprojectprocessmanagement.exception.XException;
 import org.example.graduationprojectprocessmanagement.repository.ProcessRepository;
+import org.example.graduationprojectprocessmanagement.repository.ProcessScoreRepository;
 import org.example.graduationprojectprocessmanagement.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +22,7 @@ import java.util.List;
 public class TeacherService {
     private final ProcessRepository processRepository;
     private final UserRepository userRepository;
+    private final ProcessScoreRepository processScoreRepository;
 
     // 创建过程
     @Transactional
@@ -53,5 +56,18 @@ public class TeacherService {
     // 获取导师所在组的学生
     public List<User> listGroupUser(String departmentId, int groupNumber) {
         return userRepository.findByRoleAndGroupNumber(departmentId,User.STUDENT,groupNumber);
+    }
+
+    // 给所在分组学生的过程打分
+    @Transactional
+    public void mark(ProcessScore processScore,String studentId,String processId,String teacherId) {
+        if (processScore.getId()==null) {
+            processScore.setStudentId(studentId);
+            processScore.setProcessId(processId);
+            processScore.setTeacherId(teacherId);
+            processScoreRepository.save(processScore);
+        } else {
+            processScoreRepository.updateScore(processScore.getId(),processScore.getDetail());
+        }
     }
 }

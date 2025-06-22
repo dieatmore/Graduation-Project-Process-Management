@@ -3,6 +3,7 @@ package org.example.graduationprojectprocessmanagement.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.graduationprojectprocessmanagement.dox.Process;
+import org.example.graduationprojectprocessmanagement.dox.ProcessScore;
 import org.example.graduationprojectprocessmanagement.dox.User;
 import org.example.graduationprojectprocessmanagement.service.TeacherService;
 import org.example.graduationprojectprocessmanagement.service.UserService;
@@ -48,5 +49,11 @@ public class TeacherController {
     public ResultVO listGroupUser(@RequestAttribute("departmentId") String departmentId,@RequestAttribute("groupNumber") int groupNumber) {
         List<User> u = teacherService.listGroupUser(departmentId,groupNumber);
         return ResultVO.success(u);
+    }
+
+    @PostMapping("processScore/{studentId}/{processId}")
+    public ResultVO mark(@PathVariable String studentId,@PathVariable String processId,@RequestAttribute("uid") String teacherId,@RequestBody ProcessScore processScore) {
+        teacherService.mark(processScore,studentId,processId,teacherId);
+        return ResultVO.success(processScore);
     }
 }
