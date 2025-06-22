@@ -23,10 +23,6 @@ public class AdminService {
     // 创建专业
     @Transactional
     public void addDepartment(Department department) {
-//         500错误
-//        if (departmentRepository.existsByName(department.getName())) {
-//            throw XException.builder().number(Code.ERROR).message("专业已存在").build();
-//        }
         departmentRepository.save(department);
     }
 

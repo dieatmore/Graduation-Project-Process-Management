@@ -42,6 +42,11 @@
 <br>
 
 2025-6-22
+<br>
+<br>
+
+> ***解决所有抛出自定义XException后报错 500***
+>> 原因： ExceptionController 的注解写成@RestController，应该是@RestControllerAdvice
 
 1. 用户：更改密码功能
 2. 过程加入权限，不同用户根据 role 值获取对应 auth 过程

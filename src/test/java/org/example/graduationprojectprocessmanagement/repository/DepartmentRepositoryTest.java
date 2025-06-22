@@ -21,4 +21,5 @@ class DepartmentRepositoryTest {
         boolean result = departmentRepository.existsByName("软件工程");
         log.debug("存在：{}",result);
     }
+
 }
