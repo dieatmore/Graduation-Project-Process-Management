@@ -56,4 +56,10 @@ public class TeacherController {
         teacherService.mark(processScore,studentId,processId,teacherId);
         return ResultVO.success(processScore);
     }
+
+    @GetMapping("processScore/{processId}")
+    public ResultVO listProcessScore(@PathVariable String processId,@RequestAttribute("uid") String teacherId) {
+        List<ProcessScore> ps = teacherService.listProcessScore(teacherId,processId);
+        return ResultVO.success(ps);
+    }
 }

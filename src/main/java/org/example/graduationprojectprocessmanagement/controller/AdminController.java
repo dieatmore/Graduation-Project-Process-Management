@@ -25,4 +25,10 @@ public class AdminController {
         adminService.addDepartment(department);
         return ResultVO.success(department);
     }
+
+    @DeleteMapping("departments/{departmentId}")
+    public ResultVO deleteDepartment(@PathVariable String departmentId) {
+        adminService.deleteDepartment(departmentId);
+        return ResultVO.ok();
+    }
 }

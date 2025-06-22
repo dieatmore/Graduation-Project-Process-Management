@@ -22,4 +22,11 @@ class UserRepositoryTest {
         List<User> u = userRepository.findStudentByTeacherId("1385868917132124160","1385826789966927296");
         log.debug("{}",u);
     }
+
+    @Test
+    void countByDepartmentId() {
+        int a = userRepository.countByDepartmentId("1385885254290137088");
+        log.debug("用户个数为：{}",a);
+    }
+
 }

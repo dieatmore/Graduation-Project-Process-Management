@@ -70,4 +70,9 @@ public class TeacherService {
             processScoreRepository.updateScore(processScore.getId(),processScore.getDetail());
         }
     }
+
+    // 查看该导师给某过程的评分
+    public List<ProcessScore> listProcessScore(String teacherId, String processId) {
+        return processScoreRepository.findByTeacherIdAndProcessId(teacherId, processId);
+    }
 }

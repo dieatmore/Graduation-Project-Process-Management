@@ -15,4 +15,5 @@ public interface DepartmentRepository extends ListCrudRepository<Department,Stri
            WHERE name=:name);
            """)
     boolean existsByName(String name);
+
 }

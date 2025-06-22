@@ -21,4 +21,7 @@ public interface UserRepository extends ListCrudRepository<User, String> {
            select * from user u where u.department_id=:departmentId and u.role=:role and u.group_number=:groupNumber;
            """)
     List<User> findByRoleAndGroupNumber(String departmentId, String role, int groupNumber);
+
+    int countByDepartmentId(String departmentId);
+
 }

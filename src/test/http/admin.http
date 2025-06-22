@@ -10,3 +10,7 @@ Content-Type: application/json
 ### 获取所有部门
 GET http://localhost:8080/api/admin/departments
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiUWUxcCIsInVpZCI6IjEzODU4MjY3ODk5OTk5MjcyOTYiLCJpYXQiOjE3NTA0ODU3NTksImV4cCI6MTc1MDU3MjE1OX0.95oMw-EGm4HzGwM7gePFwd_PnGbT1ony4sFO1fUqph0
+
+### 删除空部门
+DELETE http://localhost:8080/api/admin/departments/1385868917132124160
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTk5OTI3Mjk2Iiwicm9sZSI6IlFlMXAiLCJkZXBhcnRtZW50SWQiOiJhZG1pbiIsImlhdCI6MTc1MDU5NTE0MywiZXhwIjoxNzUwNjgxNTQzfQ.4Rnj44gEZoap1j_XhBB0MYXdjfQNHSTqQ9QOIadGZ5k
