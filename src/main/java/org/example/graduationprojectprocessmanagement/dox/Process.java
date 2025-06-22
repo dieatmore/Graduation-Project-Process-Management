@@ -15,6 +15,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class Process {
+    public static final String BOTH_AUTH = "TEA01";
+    public static final String TEACHER_AUTH = "Pbu45";
+
     @Id
     @CreatedBy
     private String id;

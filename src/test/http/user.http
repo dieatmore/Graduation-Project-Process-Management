@@ -1,0 +1,25 @@
+### 导师更改密码
+PATCH http://localhost:8080/api/user/password
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODU4MjY3ODk5NjY5MjcyOTYiLCJyb2xlIjoiYlUzZSIsImlhdCI6MTc1MDU2MjU4NywiZXhwIjoxNzUwNjQ4OTg3fQ.6_CHYddziixFyzzKseL58ebf3FTsT2sRoiyklwQSmaw
+Content-Type: application/json
+
+{
+  "password": "12345"
+}
+
+### 导师获取子项
+GET http://localhost:8080/api/user/process
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODU4MjY3ODk5NjY5MjcyOTYiLCJyb2xlIjoiYlUzZSIsImlhdCI6MTc1MDU2MjU4NywiZXhwIjoxNzUwNjQ4OTg3fQ.6_CHYddziixFyzzKseL58ebf3FTsT2sRoiyklwQSmaw
+
+### 学生更改密码
+PATCH http://localhost:8080/api/user/password
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODI4MjYyODE5Mjk5MjcyOTMiLCJyb2xlIjoidVdxMiIsImlhdCI6MTc1MDU2MjYwOSwiZXhwIjoxNzUwNjQ5MDA5fQ.KNqPHLuAOS41WFZw-E4Std9Yuk6rhuLpFuUQeIZXSR8
+Content-Type: application/json
+
+{
+  "password": "2022212916"
+}
+
+### 学生获取子项
+GET http://localhost:8080/api/user/process
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODI4MjYyODE5Mjk5MjcyOTMiLCJyb2xlIjoidVdxMiIsImlhdCI6MTc1MDU2MjYwOSwiZXhwIjoxNzUwNjQ5MDA5fQ.KNqPHLuAOS41WFZw-E4Std9Yuk6rhuLpFuUQeIZXSR8

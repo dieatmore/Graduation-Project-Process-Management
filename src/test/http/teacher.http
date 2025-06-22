@@ -1,6 +1,6 @@
-### 创建子项
+### 创建导师和学生都可见的子项
 POST http://localhost:8080/api/teacher/process
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYlUzZSIsImRlcGFydG1lbnRJZCI6IjEzODU4Njg5MTcxMzIxMjQxNjAiLCJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2IiwiaWF0IjoxNzUwNTAwNTY4LCJleHAiOjE3NTA1ODY5Njh9.fUAhM6Dx_2la6jUHmZMk9gB_ab6_djRBhNv89nd8E1E
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODU4MjY3ODk5NjY5MjcyOTYiLCJyb2xlIjoiYlUzZSIsImlhdCI6MTc1MDU2MjQ4NCwiZXhwIjoxNzUwNjQ4ODg0fQ.bpPliRHQz94QOo8RTS3ylHhIx3b_0x8aeFKBiR2xVWM
 Content-Type: application/json
 
 {
@@ -9,4 +9,35 @@ Content-Type: application/json
   "point": 30,
   "auth": "TEA01",
   "student_attach": "[{\"number\":\"1\",\"name\":\"开题答辩报告\",\"ext\":\"pdf\",\"description\":\"需清晰可见有效期\"}]"
+}
+
+### 创建只有导师可见的子项
+POST http://localhost:8080/api/teacher/process
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODU4MjY3ODk5NjY5MjcyOTYiLCJyb2xlIjoiYlUzZSIsImlhdCI6MTc1MDU2MjQ4NCwiZXhwIjoxNzUwNjQ4ODg0fQ.bpPliRHQz94QOo8RTS3ylHhIx3b_0x8aeFKBiR2xVWM
+Content-Type: application/json
+
+{
+  "name": "答辩中期",
+  "items":  "[{\"number\":\"1\",\"name\":\"选题论述\",\"point\":50,\"description\":\"毕业设计的选题论述\"},{\"number\":\"2\",\"name\":\"设计展开\",\"point\":25,\"description\":\"毕业设计的设计展开\"},{\"number\":\"3\",\"name\":\"答辩\",\"point\":25,\"description\":\"毕业设计的答辩\"}]",
+  "point": 20,
+  "auth": "Pbu45",
+  "student_attach": "[{\"number\":\"1\",\"name\":\"答辩中期报告\",\"ext\":\"pdf\",\"description\":\"需清晰可见有效期\"}]"
+}
+
+### 导师删除过程(路径参数)
+DELETE http://localhost:8080/api/teacher/process/1386187998511128576
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODU4MjY3ODk5NjY5MjcyOTYiLCJyb2xlIjoiYlUzZSIsImlhdCI6MTc1MDU2MjQ4NCwiZXhwIjoxNzUwNjQ4ODg0fQ.bpPliRHQz94QOo8RTS3ylHhIx3b_0x8aeFKBiR2xVWM
+
+### 导师修改子项
+POST http://localhost:8080/api/teacher/process
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsInVpZCI6IjEzODU4MjY3ODk5NjY5MjcyOTYiLCJyb2xlIjoiYlUzZSIsImlhdCI6MTc1MDU2MjQ4NCwiZXhwIjoxNzUwNjQ4ODg0fQ.bpPliRHQz94QOo8RTS3ylHhIx3b_0x8aeFKBiR2xVWM
+Content-Type: application/json
+
+{
+  "id": "1386194177400397824",
+  "name": "修改后的过程",
+  "items":  "[{\"number\":\"1\",\"name\":\"选题论述\",\"point\":50,\"description\":\"毕业设计的选题论述\"},{\"number\":\"2\",\"name\":\"设计展开\",\"point\":25,\"description\":\"毕业设计的设计展开\"},{\"number\":\"3\",\"name\":\"答辩\",\"point\":25,\"description\":\"毕业设计的答辩\"}]",
+  "point": 20,
+  "auth": "Pbu45",
+  "student_attach": "[{\"number\":\"1\",\"name\":\"答辩中期报告\",\"ext\":\"pdf\",\"description\":\"需清晰可见有效期\"}]"
 }

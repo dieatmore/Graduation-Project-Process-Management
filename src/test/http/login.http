@@ -1,4 +1,4 @@
-### 管理员
+### 管理员登录
 POST http://localhost:8080/api/login
 Content-Type: application/json
 
@@ -7,11 +7,20 @@ Content-Type: application/json
   "password": "admin"
 }
 
-### 老师
+### 导师登录
 POST http://localhost:8080/api/login
 Content-Type: application/json
 
 {
   "number": "12345",
-  "password": "admin"
+  "password": "12345"
+}
+
+### 学生登录
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "number": "2022212916",
+  "password": "2022212916"
 }
