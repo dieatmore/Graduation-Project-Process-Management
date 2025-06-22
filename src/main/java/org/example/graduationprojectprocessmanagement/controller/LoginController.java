@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
@@ -31,12 +32,14 @@ public class LoginController {
         if(userR == null || !passwordEncoder.matches(user.getPassword(), userR.getPassword())) {
             return ResultVO.error(Code.LOGIN_ERROR);
         }
-        String token = null;
-        if(userR.getGroupNumber()!=null) {
-            token = jwtComponent.encode(Map.of("uid",userR.getId(),"role",userR.getRole(),"departmentId",userR.getDepartmentId(),"groupNumber",userR.getGroupNumber()));
-        } else {
-            token = jwtComponent.encode(Map.of("uid",userR.getId(),"role",userR.getRole(),"departmentId",userR.getDepartmentId()));
+        Map<String, Object> token1 = new HashMap<>();
+        token1.put("uid",userR.getId());
+        token1.put("role",userR.getRole());
+        token1.put("departmentId",userR.getDepartmentId());
+        if(userR.getGroupNumber() != null) {
+            token1.put("groupNumber",userR.getGroupNumber());
         }
+        String token = jwtComponent.encode(token1);
         response.setHeader("token",token);
         response.setHeader("role", userR.getRole());
         return ResultVO.success(userR);

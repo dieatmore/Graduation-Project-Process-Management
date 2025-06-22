@@ -29,9 +29,8 @@ public class LoginInterceptor implements HandlerInterceptor {
         request.setAttribute("uid",uid);
         request.setAttribute("role",role);
         request.setAttribute("departmentId",departmentId);
-        Claim groupClaim = decode.getClaim("groupNumber");
-        if (groupClaim != null) {
-            request.setAttribute("groupNumber", groupClaim.asString());
+        if (!decode.getClaim("groupNumber").isMissing()) {
+            request.setAttribute("groupNumber", decode.getClaim("groupNumber").asInt());
         }
         return true;
     }

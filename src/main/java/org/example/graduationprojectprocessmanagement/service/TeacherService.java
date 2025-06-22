@@ -4,9 +4,11 @@ package org.example.graduationprojectprocessmanagement.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.graduationprojectprocessmanagement.dox.Process;
+import org.example.graduationprojectprocessmanagement.dox.User;
 import org.example.graduationprojectprocessmanagement.exception.Code;
 import org.example.graduationprojectprocessmanagement.exception.XException;
 import org.example.graduationprojectprocessmanagement.repository.ProcessRepository;
+import org.example.graduationprojectprocessmanagement.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TeacherService {
     private final ProcessRepository processRepository;
+    private final UserRepository userRepository;
 
     // 创建过程
     @Transactional
@@ -40,5 +43,15 @@ public class TeacherService {
         p.setAuth(process.getAuth());
         p.setStudent_attach(process.getStudent_attach());
         processRepository.save(p);
+    }
+
+    // 获取该导师指导的所有学生
+    public List<User> listStudentsWho(String departmentId, String teacherId) {
+        return userRepository.findStudentByTeacherId(departmentId,teacherId);
+    }
+
+    // 获取导师所在组的学生
+    public List<User> listGroupUser(String departmentId, int groupNumber) {
+        return userRepository.findByRoleAndGroupNumber(departmentId,User.STUDENT,groupNumber);
     }
 }

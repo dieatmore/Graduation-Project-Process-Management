@@ -3,10 +3,13 @@ package org.example.graduationprojectprocessmanagement.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.graduationprojectprocessmanagement.dox.Process;
+import org.example.graduationprojectprocessmanagement.dox.User;
 import org.example.graduationprojectprocessmanagement.service.TeacherService;
 import org.example.graduationprojectprocessmanagement.service.UserService;
 import org.example.graduationprojectprocessmanagement.vo.ResultVO;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -33,5 +36,17 @@ public class TeacherController {
     public ResultVO updateProcess(@RequestBody Process process, @RequestAttribute("departmentId") String departmentId) {
         teacherService.updateProcess(departmentId,process);
         return ResultVO.success(process);
+    }
+
+    @GetMapping("students/teach")
+    public ResultVO listStudentsWho(@RequestAttribute("departmentId") String departmentId,@RequestAttribute("uid") String teacherId) {
+        List<User> u = teacherService.listStudentsWho(departmentId,teacherId);
+        return ResultVO.success(u);
+    }
+
+    @GetMapping("students/group")
+    public ResultVO listGroupUser(@RequestAttribute("departmentId") String departmentId,@RequestAttribute("groupNumber") int groupNumber) {
+        List<User> u = teacherService.listGroupUser(departmentId,groupNumber);
+        return ResultVO.success(u);
     }
 }
