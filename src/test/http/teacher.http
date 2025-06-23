@@ -51,15 +51,18 @@ GET http://localhost:8080/api/teacher/students/group
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDU3NzcyMCwiZXhwIjoxNzUwNjY0MTIwfQ.aVO-r5NaH84Q067GSLzw_33wS7Q3GRkXtvbNuKEXr00
 
 ### 导师评分(无id创建，有id更新)
-POST http://localhost:8080/api/teacher/processScore/1382826281929927293/1385934577505820672
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDU4Mjc3MSwiZXhwIjoxNzUwNjY5MTcxfQ.EC8JiOx0Z2TuY2tiV3WZpBzBZtn5ZspthDFub8BwEnY
+POST http://localhost:8080/api/teacher/processScore/1382826281921237293/1385934577505820672
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDY4MzU1MiwiZXhwIjoxNzUwNzY5OTUyfQ.I1-u858u5F7po7NVcdBSxi2TOL_ZXw6dFVLYr-oIfJY
 Content-Type: application/json
 
 {
-  "id": "1386269736033738752",
-  "detail":  "{\"teacherName\":\"王波老师\",\"score\":91.2,\"detail\":[{\"number\":\"QUIZ001\",\"score\":95},{\"number\":\"ASSIGN002\",\"score\":88},{\"number\":\"FINAL_EXAM\",\"score\":90}]}"
+  "detail":  "{\"teacherName\":\"王波老师\",\"score\":78.9,\"detail\":[{\"number\":\"QUIZ001\",\"score\":95},{\"number\":\"ASSIGN002\",\"score\":88},{\"number\":\"FINAL_EXAM\",\"score\":90}]}"
 }
 
-### 获取该导师给某过程的评分
-GET http://localhost:8080/api/teacher/processScore/1385934577505820672
-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDU5MzUxNCwiZXhwIjoxNzUwNjc5OTE0fQ.olqZQyFXxIP73wZNlfEFoV4tae6csQyIxY7djPdPvsc
+### 查看该导师指导的所有学生的某过程的评分
+GET http://localhost:8080/api/teacher/processScore/teacher/1385934577505820672
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDY4NDc1MCwiZXhwIjoxNzUwNzcxMTUwfQ.UQg6jYaBAekmYzX5gD1OxeNCUqXcJtsASw-ZWKwbH48
+
+### 查看该导师所在组的所有学生的某过程的评分
+GET http://localhost:8080/api/teacher/processScore/group/1385934577505820672
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTY2OTI3Mjk2Iiwicm9sZSI6ImJVM2UiLCJkZXBhcnRtZW50SWQiOiIxMzg1ODY4OTE3MTMyMTI0MTYwIiwiZ3JvdXBOdW1iZXIiOjIsImlhdCI6MTc1MDY4NDc1MCwiZXhwIjoxNzUwNzcxMTUwfQ.UQg6jYaBAekmYzX5gD1OxeNCUqXcJtsASw-ZWKwbH48

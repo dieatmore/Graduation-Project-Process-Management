@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.graduationprojectprocessmanagement.dox.Process;
 import org.example.graduationprojectprocessmanagement.dox.ProcessScore;
 import org.example.graduationprojectprocessmanagement.dox.User;
+import org.example.graduationprojectprocessmanagement.dto.ProcessScoreUserDTO;
 import org.example.graduationprojectprocessmanagement.exception.Code;
 import org.example.graduationprojectprocessmanagement.exception.XException;
 import org.example.graduationprojectprocessmanagement.repository.ProcessRepository;
@@ -71,8 +72,18 @@ public class TeacherService {
         }
     }
 
-    // 查看该导师给某过程的评分
-    public List<ProcessScore> listProcessScore(String teacherId, String processId) {
-        return processScoreRepository.findByTeacherIdAndProcessId(teacherId, processId);
+//    // 查看该导师给某过程的评分 ---考虑后觉得没有该视图，舍去
+//    public List<ProcessScore> listProcessScore(String teacherId, String processId) {
+//        return processScoreRepository.findByTeacherIdAndProcessId(teacherId, processId);
+//    }
+
+     // 查看该导师指导的所有学生的某过程的评分
+    public List<ProcessScoreUserDTO> listProcessScoreTeacher(String teacherId, String processId) {
+        return processScoreRepository.findByUteacherId(teacherId,processId);
+    }
+
+    // 查看该导师所在组的所有学生的某过程的评分
+    public List<ProcessScoreUserDTO> listProcessScoreGroup(String departmentId, String processId, int groupNumber,String teacherId) {
+        return processScoreRepository.findByGroupNumber(departmentId,processId,groupNumber,teacherId);
     }
 }

@@ -20,3 +20,14 @@ SET ps.detail = '{
   ]
 }'
 WHERE ps.id = '1234567890123456789';
+
+SELECT  ps.id, student_id,name, process_id,teacher_id, detail
+FROM process_score ps
+         JOIN user u ON ps.student_id = u.id
+WHERE ps.process_id =1385934577505820672
+  AND u.student ->> '$.teacherId' =1385826789966927296;
+
+select ps.id,name,number, student_id,process_id,teacher_id, detail
+from process_score ps
+         right join user u ON ps.student_id = u.id and ps.process_id =1385934577505820672
+where u.student ->> '$.teacherId' =1385826789966927296;

@@ -38,15 +38,31 @@
 <br>
 
 ### update
-
 <br>
 
+
+2025-6-23
+<br>
+<br>
+
+> ***导师：查看所在组的所有学生的某过程的评分 包括了 查看自己给某过程的评分，所以舍去***
+
+1. 导师：查看自己给某过程的评分 -----该功能 **舍去**
+2. 导师：查看指导的所有学生的某过程的评分
+3. 导师：查看分组的所有学生的某过程的评分
+ 
+- right join user表：返回创建的ProcessScoreUserDTO --> 可以查看所有指定学生（包括没有评分的）
+
+
+
+
+<br>
 2025-6-22
 <br>
 <br>
 
 > ***解决所有抛出自定义XException后报错 500***
->> 原因： ExceptionController 的注解写成@RestController，应该是@RestControllerAdvice
+> - 原因： ExceptionController 的注解写成@RestController，应该是@RestControllerAdvice
 
 1. 用户：更改密码功能
 2. 过程加入权限，不同用户根据 role 值获取对应 auth 过程

@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.example.graduationprojectprocessmanagement.dox.Process;
 import org.example.graduationprojectprocessmanagement.dox.ProcessScore;
 import org.example.graduationprojectprocessmanagement.dox.User;
+import org.example.graduationprojectprocessmanagement.dto.ProcessScoreUserDTO;
 import org.example.graduationprojectprocessmanagement.service.TeacherService;
 import org.example.graduationprojectprocessmanagement.service.UserService;
 import org.example.graduationprojectprocessmanagement.vo.ResultVO;
@@ -57,9 +58,23 @@ public class TeacherController {
         return ResultVO.success(processScore);
     }
 
-    @GetMapping("processScore/{processId}")
-    public ResultVO listProcessScore(@PathVariable String processId,@RequestAttribute("uid") String teacherId) {
-        List<ProcessScore> ps = teacherService.listProcessScore(teacherId,processId);
+    // 查看该导师给某过程的评分 ---考虑后觉得没有该视图，舍去
+//    @GetMapping("processScore/{processId}")
+//    public ResultVO listProcessScore(@PathVariable String processId,@RequestAttribute("uid") String teacherId) {
+//        List<ProcessScore> ps = teacherService.listProcessScore(teacherId,processId);
+//        return ResultVO.success(ps);
+//    }
+
+    @GetMapping("processScore/teacher/{processId}")
+    public ResultVO listProcessScoreTeacher(@PathVariable String processId,@RequestAttribute("uid") String teacherId) {
+        List<ProcessScoreUserDTO> ps = teacherService.listProcessScoreTeacher(teacherId,processId);
         return ResultVO.success(ps);
     }
+
+    @GetMapping("processScore/group/{processId}")
+    public ResultVO listProcessScoreGroup(@PathVariable String processId,@RequestAttribute("departmentId") String departmentId,@RequestAttribute("groupNumber") int groupNumber,@RequestAttribute("uid") String teacherId) {
+        List<ProcessScoreUserDTO> ps = teacherService.listProcessScoreGroup(departmentId,processId,groupNumber,teacherId);
+        return ResultVO.success(ps);
+    }
+
 }
