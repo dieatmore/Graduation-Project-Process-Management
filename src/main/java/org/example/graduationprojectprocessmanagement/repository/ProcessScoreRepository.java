@@ -37,4 +37,6 @@ public interface ProcessScoreRepository extends ListCrudRepository<ProcessScore,
              and u.id !=:teacherId;
            """)
     List<ProcessScoreUserDTO> findByGroupNumber(String departmentId,String processId,int groupNumber,String teacherId);
+
+    ProcessScore findByProcessIdAndStudentId(String processId, String studentId);
 }
