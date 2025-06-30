@@ -41,4 +41,9 @@ public class AdminService {
         }
         departmentRepository.deleteById(departmentId);
     }
+
+    // 根据名称模糊搜索专业
+    public List<Department> searchByName(String name) {
+        return departmentRepository.findByNameContaining(name);
+    }
 }

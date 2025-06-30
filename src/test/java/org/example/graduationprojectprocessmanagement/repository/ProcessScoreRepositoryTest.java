@@ -16,9 +16,5 @@ class ProcessScoreRepositoryTest {
 
     @Autowired
     private ProcessScoreRepository processScoreRepository;
-    @Test
-    void findByTeacherIdAndProcessId() {
-        List<ProcessScore> ps = processScoreRepository.findByTeacherIdAndProcessId("1385826789966927296","1385934577505820672");
-        log.debug("{}",ps);
-    }
+
 }

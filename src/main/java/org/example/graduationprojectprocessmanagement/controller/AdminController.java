@@ -8,9 +8,11 @@ import org.example.graduationprojectprocessmanagement.service.UserService;
 import org.example.graduationprojectprocessmanagement.vo.ResultVO;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Slf4j
 @RestController
-@RequestMapping("/api/admin/")
+@RequestMapping("/api/admin")
 @RequiredArgsConstructor
 public class AdminController {
     private final AdminService adminService;
@@ -30,5 +32,11 @@ public class AdminController {
     public ResultVO deleteDepartment(@PathVariable String departmentId) {
         adminService.deleteDepartment(departmentId);
         return ResultVO.ok();
+    }
+
+    @GetMapping("search/{name}")
+    public ResultVO listSearch(@PathVariable String name) {
+        List<Department> ds = adminService.searchByName(name);
+        return ResultVO.success(ds);
     }
 }
