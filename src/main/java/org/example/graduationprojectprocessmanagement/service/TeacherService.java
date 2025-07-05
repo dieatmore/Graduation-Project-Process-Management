@@ -28,7 +28,7 @@ public class TeacherService {
     // 创建过程
     @Transactional
     public void addProcess(Process process) {
-        processRepository.save(process);
+    processRepository.save(process);
     }
 
     // 删除过程

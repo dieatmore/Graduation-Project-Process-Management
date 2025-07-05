@@ -31,3 +31,5 @@ select ps.id,name,number, student_id,process_id,teacher_id, detail
 from process_score ps
          right join user u ON ps.student_id = u.id and ps.process_id =1385934577505820672
 where u.student ->> '$.teacherId' =1385826789966927296;
+
+select * FROM user WHERE id = 1389967845725200384

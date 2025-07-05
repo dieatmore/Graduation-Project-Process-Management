@@ -18,3 +18,21 @@ token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTk5OTI3Mjk2
 ### 搜索部门
 GET http://localhost:8080/api/admin/search/%E4%BA%BA%E5%B7%A5
 token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTk5OTI3Mjk2Iiwicm9sZSI6IlFlMXAiLCJkZXBhcnRtZW50SWQiOiJhZG1pbiIsImlhdCI6MTc1MTI4OTc2NywiZXhwIjoxNzUxMzc2MTY3fQ.Sb8pTpl3FZHcoV578x2sNf4-ey1nJhl0sHOhyQXRQXM
+
+### 添加teachers
+POST http://localhost:8080/api/admin/teachers/1389950034256748544
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzg1ODI2Nzg5OTk5OTI3Mjk2Iiwicm9sZSI6IlFlMXAiLCJkZXBhcnRtZW50SWQiOiJhZG1pbiIsImlhdCI6MTc1MTQ1OTk4MywiZXhwIjoxNzUxNTQ2MzgzfQ.nwrOR04QvW-U6OcbNAMvf9MxoJ6gLGlOvxprPZT3CkA
+Content-Type: application/json
+
+[
+  {
+    "name": "李导航",
+    "number": "100001214",
+    "password": "123"
+  },
+  {
+    "name": "李饿啊",
+    "number": "1000002614",
+    "password": "123"
+  }
+]

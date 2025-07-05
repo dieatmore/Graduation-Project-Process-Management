@@ -19,7 +19,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TeacherController {
     private final TeacherService teacherService;
-    private final UserService userService;
 
     @PostMapping("process")
     public ResultVO addProcess(@RequestBody Process process, @RequestAttribute("departmentId") String departmentId ) {
