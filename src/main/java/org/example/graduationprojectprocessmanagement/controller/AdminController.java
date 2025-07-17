@@ -29,13 +29,13 @@ public class AdminController {
     @PostMapping("departments")
     public ResultVO addDepartment(@RequestBody Department department) {
         adminService.addDepartment(department);
-        return ResultVO.success(department);
+        return ResultVO.success(adminService.listDepartments());
     }
 
     @DeleteMapping("departments/{departmentId}")
     public ResultVO deleteDepartment(@PathVariable String departmentId) {
         adminService.deleteDepartment(departmentId);
-        return ResultVO.ok();
+        return ResultVO.success(adminService.listDepartments());
     }
 
     @GetMapping("search/{name}")

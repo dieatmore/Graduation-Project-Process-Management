@@ -52,7 +52,7 @@ public class AdminService {
         return departmentRepository.findByNameContaining(name);
     }
 
-    // 添加老师
+    // 添加老师(to learn 批量处理)
     @Transactional
     public void addUsers(String departmentId, String role, ArrayList<User> users) {
         users.forEach(teacher -> {
